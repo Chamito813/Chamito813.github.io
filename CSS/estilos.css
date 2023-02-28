@@ -21,3 +21,88 @@ div {
     border-radius: 19px;
     display: grid;
 }
+
+#Fondo-img {
+    background-image: url(../Images/perrito_image.jpg);
+}
+
+#color-text {
+    color: blueviolet;
+}
+
+#font-normal {
+    font: bold italic large serif;
+}
+
+#font-fam {
+    font-family: Courier, "Lucida Console", monospace;
+}
+
+#font-S-W {
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+#wid-hei {
+    width: auto;
+    height: fit-content;
+}
+
+#Lista1 {
+    list-style: circle;
+}
+
+#Lista2 {
+    list-style: square inside;
+}
+
+.mar1 {
+    margin: auto;
+    background: lime;
+    width: 66%;
+}
+
+.mar2 {
+    margin: 1rem 0 0 -1rem;
+    background: cyan;
+    width: 66%;
+}
+
+.pad {
+    padding: 3em 4em 3em;
+}
+
+#ovr {
+    width: 12em;
+    border: dotted;
+    overflow: visible;
+}
+
+#disp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: aqua;
+    color: white;
+  }
+  
+  #two {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    background: orangered;
+  }
+
+  .doggy {
+    filter: grayscale(0.4) blur(4px);
+    width: 20em;
+    height: 20em;
+    margin: 3em 15em 3em;
+  }
