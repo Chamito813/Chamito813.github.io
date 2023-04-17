@@ -34,9 +34,9 @@ document.addEventListener("mousemove", function(event) {
 
 //Función hecha por ChatGPT:
 document.addEventListener("mousemove", function(event) {
-    var x = event.clientX;
-    var y = event.clientY;
-    var mousePosition = document.getElementById("mousePosition");
+    let x = event.clientX;
+    let y = event.clientY;
+    let mousePosition = document.getElementById("mousePosition");
     mousePosition.innerHTML = "Posición del mouse: (" + x + ", " + y + ")";
 });
 
@@ -67,50 +67,36 @@ submitBtn.addEventListener("click", function(event) {
 
 
 //Función para el tercer ejercicio hecha por GPT:
-// Capturamos los elementos del DOM
-const table = document.getElementById("sampleTable");
-const insertRowBtn = document.getElementById("btn-insert-r");
-const insertColBtn = document.getElementById("btn-insert-c");
+// Obtener los botones de inserción de fila y columna
+let insertRowBtn = document.getElementById("btn-insert-r");
+let insertColBtn = document.getElementById("btn-insert-c");
 
-// Agregamos un manejador de eventos para el botón de agregar fila
-insertRowBtn.addEventListener("click", function () {
-  // Creamos una nueva fila y agregamos celdas a la fila
-  const newRow = table.insertRow();
-  const cell1 = newRow.insertCell();
-  const cell2 = newRow.insertCell();
-  // Agregamos contenido a las celdas
-  cell1.innerHTML = "New row column 1";
-  cell2.innerHTML = "New row column 2";
+// Agregar un evento de clic a cada botón de inserción
+insertRowBtn.addEventListener("click", function() {
+// Crear una nueva fila
+  let newRow = document.createElement("tr");
+
+  // Crear dos nuevas celdas y agregarlas a la nueva fila
+  let newCell1 = document.createElement("td");
+  newCell1.textContent = "New Row";
+  let newCell2 = document.createElement("td");
+  newCell2.textContent = "New Row";
+  newRow.appendChild(newCell1);
+  newRow.appendChild(newCell2);
+
+  // Obtener una referencia a la tabla y agregar la nueva fila al final
+  let table = document.getElementById("sampleTable");
+  table.appendChild(newRow);
 });
 
-// Agregamos un manejador de eventos para el botón de agregar columna
-insertColBtn.addEventListener("click", function () {
-  // Recorremos cada fila existente y agregamos una celda a cada una
-  for (let i = 0; i < table.rows.length; i++) {
-    const cell = table.rows[i].insertCell();
-    cell.innerHTML = "New column";
-  }
-});
+insertColBtn.addEventListener("click", function() {
+  // Obtener todas las filas de la tabla
+  let rows = document.querySelectorAll("#sampleTable tr");
 
-// Función para el cuarto ejercicio hecha por GPT:
-const myTable = document.getElementById("myTable");
-const rowIndexInput = document.getElementById("rowIndex");
-const colIndexInput = document.getElementById("colIndex");
-const newValueInput = document.getElementById("newValue");
-const changeBtn = document.getElementById("btn-change");
-
-changeBtn.addEventListener("click", function() {
-    const rowIndex = parseInt(rowIndexInput.value) - 1; // Restamos 1 para ajustar a índices de JS
-    const colIndex = parseInt(colIndexInput.value) - 1; // Restamos 1 para ajustar a índices de JS
-    const newValue = newValueInput.value;
-
-    // Verificamos si los índices son válidos
-    if (rowIndex < 0 || rowIndex >= myTable.rows.length ||
-        colIndex < 0 || colIndex >= myTable.rows[rowIndex].cells.length) {
-      alert("Invalid index");
-      return;
-    }
-
-    // Actualizamos el contenido de la celda
-    myTable.rows[rowIndex].cells[colIndex].innerHTML = newValue;
+  // Para cada fila, crear una nueva celda y agregarla al final
+  rows.forEach(function(row) {
+    let newCell = document.createElement("td");
+    newCell.textContent = "New Column";
+    row.appendChild(newCell);
   });
+});
